@@ -1,0 +1,49 @@
+body {
+  margin: auto;
+  background-color: #EEEEEE;
+  font-family: 'Soleto', 'Arial', sans-serif;
+  padding: 1em;
+}
+
+.error500 {
+  padding: 2em;
+  background-color: #fff;
+  border: 1px solid #cfcfcf;
+  border-radius: 3px;
+  max-width: 500px;
+  margin: auto;
+  position: relative;
+}
+
+@media screen and (min-width: 320px){
+  .error500 {
+    top: 100px;
+  }
+}
+
+.error500 h1{
+  font-size: 72px;
+  text-align: center;
+  color: #7F5EBA;
+  margin: 0;
+  font-weight: normal;
+}
+
+.error500 h2{
+  font-size: 2em;
+  display: block;
+  font-weight: normal;
+}
+
+.error500 p{
+  display: block;
+  font-size: 16px;
+}
+
+.alert-icon{
+  fill: #7F5EBA;
+  height: 100px;
+  display: block;
+  text-align: center;
+  margin: auto;
+}

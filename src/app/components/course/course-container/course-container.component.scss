@@ -1,0 +1,33 @@
+
+.box {
+  //height: auto;
+  padding: 2em;
+
+}
+
+@media only screen and (min-width: 1200px) {
+  .box {
+    //height: auto;
+    padding: 3em;
+
+  }
+  .row {
+    display: flex;
+  }
+  .cell {
+    flex: 1 1 100px;
+    height: 10px;
+    justify-content: space-between;
+
+  }
+  .cell:nth-of-type(2) {
+    padding-left: 2em;
+    flex-grow: 2;
+  }
+}
+
+//FOR LAPTOP
+
+@media only screen and (min-width: 1030px) and (max-width: 1366px) {
+
+}

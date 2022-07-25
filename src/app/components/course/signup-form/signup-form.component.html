@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+      <h2 class="section-title">Course Signup</h2>
+      <form [formGroup]="courseSignupForm" (ngSubmit)="onSubmitCourseSignup(courseSignupForm.value)" *ngIf="newForm">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="User Name" formControlName="username" required>
+          <mat-error *ngFor="let validation of guideMessages.username">
+            <mat-error class="error-message" *ngIf="courseSignupForm.get('username')?.hasError(validation.type) && (courseSignupForm.get('username')?.dirty || courseSignupForm.get('username')?.touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Email" formControlName="email" required>
+          <mat-error *ngFor="let validation of guideMessages.email">
+            <mat-error class="error-message" *ngIf="courseSignupForm.get('email')?.hasError(validation.type) && (courseSignupForm.get('email')?.dirty || courseSignupForm.get('email')?.touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Student Id" formControlName="studentId" required>
+          <mat-error *ngFor="let validation of guideMessages.studentId">
+            <mat-error class="error-message" *ngIf="courseSignupForm.get('studentId')?.hasError(validation.type) && (courseSignupForm.get('studentId')?.dirty || courseSignupForm.get('studentId')?.touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+
+        <div  class="row">
+          <mat-form-field class="full-width col-3">
+            <mat-select formControlName="courseSubject" placeholder="Course Subject" (selectionChange)="onCourseSubjectChange($event)">
+              <mat-option *ngFor="let subject of subjects" [value]="subject">
+                {{ subject }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="full-width col-3" *ngIf="isSubjectSelected" >
+            <mat-select formControlName="courseTopic" placeholder="Course Topic" (selectionChange)="onCourseTopicChange($event)">
+              <mat-option *ngFor="let topic of topics" [value]="topic">
+                {{ topic }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="full-width col-3" *ngIf="isTopicSelected">
+            <mat-select formControlName="courseTimeSlot" placeholder="Course Time Slot" (selectionChange)="onCourseTimeSlotChange($event)">
+              <mat-option *ngFor="let slot of timeSlots" [value]="slot">
+                {{ slot }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+
+
+        <button class="submit-btn" color="primary" mat-raised-button type="submit" [disabled]="!courseSignupForm.valid">
+          Submit
+        </button>
+
+      </form>
+
+  </div>
+</div>
