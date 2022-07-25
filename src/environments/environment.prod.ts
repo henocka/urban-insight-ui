@@ -9,5 +9,5 @@ export const environment = {
   redirectUri: 'http://coursesignupbucket.s3-website-us-east-1.amazonaws.com/login/callback',
   scopes: ['openid', 'email'],
   pkce: false,
-  thisUri: 'http://localhost:4200',
+  thisUri: 'http://coursesignupbucket.s3-website-us-east-1.amazonaws.com',
 };
