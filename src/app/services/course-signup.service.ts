@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {environment} from '../../environments/environment';
 import {Observable, of} from 'rxjs';
 import {Course, CourseDetails, CourseSchedule} from '../models/Course';
 
@@ -82,11 +81,9 @@ export class CourseSignupService {
   courseScheduleStore: Map<string, CourseSchedule> = new Map<string, CourseSchedule>();
   // @ts-ignore
   currentUserName: string;
-  private api: string;
   private preURL = '/api/v1';
 
   constructor(private http: HttpClient) {
-    this.api = environment.api;
   }
 
   signup(course: any): void {
@@ -98,7 +95,6 @@ export class CourseSignupService {
       this.courseScheduleStore.set(course.username, courseSchedule);
     }
     this.currentUserName = course.username;
-    // return this.http.get(`${environment.api}${this.preURL}/${student}`);
   }
 
   getCourseDetails(): Observable<CourseDetails[]>{
